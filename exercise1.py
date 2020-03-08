@@ -43,6 +43,8 @@ median_income = housing["median_income"]
 bins = 50
 x = np.linspace(np.min(median_income), np.max(median_income), bins)
 plt.hist(median_income, bins, density=True)
+plt.xlabel('Median income')
+plt.ylabel('Frequency')
 
 mean = median_income.mean()
 median = median_income.median()
@@ -66,6 +68,8 @@ bins = 50
 x = np.linspace(np.min(median_income), np.max(median_income), bins)
 plt.hist(median_income, bins, density=True)
 plt.plot(x, norm.pdf(x, mean, std))
+plt.xlabel('Median income')
+plt.ylabel('Frequency')
 plt.show()
 
 #%%
@@ -82,19 +86,18 @@ housing.plot(kind="scatter", x="median_income", y="median_house_value", alpha=0.
 
 median_house_value = housing["median_house_value"]
 
+# Finding percentiles
 p5 = np.percentile(median_house_value, 5)
 p95 = np.percentile(median_house_value, 95)
 
 print("5th percentile: " + str(p5))
 print("95th percentile: " + str(p95))
 
-x = np.linspace(np.min(median_house_value), np.max(median_house_value), 100)
-mean = median_house_value.mean()
-std = median_house_value.std()
-
-fig, ax = plt.subplots(2,1, figsize=(10,20)) 
-ax[0].hist(median_house_value, bins=100)
-ax[1].plot(x, norm.pdf(x, mean, std))
+# Plotting distribution
+plt.hist(median_house_value, bins=100)
+plt.xlabel('Median house value')
+plt.ylabel('Frequency')
+plt.show()
 
 
 
