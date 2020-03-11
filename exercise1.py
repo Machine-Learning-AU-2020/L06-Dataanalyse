@@ -69,7 +69,7 @@ x = np.linspace(np.min(median_income), np.max(median_income), bins)
 plt.hist(median_income, bins, density=True)
 plt.plot(x, norm.pdf(x, mean, std))
 plt.xlabel('Median income')
-plt.ylabel('Frequency')
+plt.ylabel('Density')
 plt.show()
 
 #%%
